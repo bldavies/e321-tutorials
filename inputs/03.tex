@@ -1,0 +1,60 @@
+% 03.tex
+% Benjamin Davies
+% 2017 03 11
+
+\begin{enumerate}
+
+	\item
+	%
+	\begin{enumerate}
+
+		\item
+		Show that the unit disk
+		\[ X=\{x\in\R^2:x_1^2+x_2^2<1\} \]
+		is a convex set.
+		%
+		\begin{solution}
+			First notice that the second derivative
+			\[ \der{^2}{t^2}(t^2)=2 \]
+			is positive for all~$t\in\R$.
+			Hence the square function is convex and therefore
+			\[ (\lambda t_1+(1-\lambda)t_2)^2%
+				\le\lambda t_1^2+(1-\lambda)t_2^2 \]
+			for all~$t_1,t_2\in\R$ and whenever~$0\le\lambda\le1$ by Jensen's inequality.
+			Now, let~$x^1,x^2\in X$ be arbitrary and define
+			\[ x^3=\lambda x^1+(1-\lambda)x^2 \]
+			for some~$\lambda\in[0,1]$.
+			Then
+			%
+			\begin{align}
+				(x_1^3)^2+(x_2^3)^2
+				&= (\lambda x_1^1+(1-\lambda)x_1^2)^2%
+					+(\lambda x_2^1+(1-\lambda)x_2^2)^2\\
+				&\le \lambda(x_1^1)^2+(1-\lambda)(x_1^2)^2%
+					+\lambda(x_2^1)^2+(1-\lambda)(x_2^2)^2\\
+				&< \lambda + (1-\lambda)\\
+				&= 1
+			\end{align}
+			%
+			so that~$x^3\in X$.
+			It follows that~$X$ is a convex set.
+		\end{solution}
+
+		\item
+		Show that the intersection of two convex sets is also a convex set.
+		%
+		\begin{solution}
+			Let~$X_1$ and~$X_2$ be convex sets with intersection
+			\[ X_3=X_1\cap X_2. \]
+			Let also~$x^1,x^2\in X_3$ be arbitrary and define
+			\[ x^3=\lambda x^1+(1-\lambda)x^2 \]
+			where~$0\le\lambda\le1$.
+			Then~$x^3\in X_1$ because~$x^1,x^2\in X_1$ and~$X_1$ is a convex set.
+			Similarly, we have~$x^3\in X_2$ because~$x^1,x^2\in X_1$ and~$X_2$ is a convex set.
+			Hence~$x^3\in X_3$ and therefore~$X_3$ is a convex set.
+			It follows that the intersection of two convex sets is also a convex set.
+		\end{solution}
+
+	\end{enumerate}
+
+\end{enumerate}

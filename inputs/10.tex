@@ -1,0 +1,186 @@
+% 10.tex
+% Benjamin Davies
+% 2017 05 12
+
+\begin{enumerate}
+
+	\item
+	Suppose that a consumer with income~$y$ suffers a loss of size~$L<y$ with probability~$p\in(0,1)$.
+	The consumer can buy~$c\in[0,L]$ units of insurance coverage at the per-unit price~$\pi$ and solves
+	\[ \max_c\E[u(w)]=pu(y-\pi c-L+c)+(1-p)u(y-\pi c), \]
+	where the utility function~$u(w)$ is strictly increasing and concave in~$w$.
+	%
+	\begin{enumerate}
+
+		\item
+		Derive the first-order condition for the optimal level of coverage~$c^*$.
+		Show that the second-order condition holds.
+		%
+		\begin{solution}
+			The optimal level of coverage~$c^*$ satisfies the first-order condition
+			%
+			\begin{align}
+				0
+				&= \pder{\E[u(w)]}{c}\bigg\vert_{c=c^*}\\
+				&= (1-\pi)pu'(w-\pi c^*-L+c^*)-\pi(1-p)u'(w-\pi c^*). \label{eq:insurance_foc}
+			\end{align}
+			%
+			The second derivative
+			\[ \pder{^2\E[u(w)]}{c^2}=(1-\pi)^2pu''(y-\pi c-L+c)+\pi^2(1-p)u''(y-\pi c) \]
+			is strictly negative since~$u(w)$ is strictly concave and so the second-order condition holds.
+		\end{solution}
+
+		\item
+		Show that~$c^*$ is increasing in~$p$.
+		%
+		\begin{solution}
+
+			Let~$w_1^*\equiv y-\pi c^*-L+c^*$ and~$w_2^*\equiv y-\pi c^*$ so that
+			\[ 0=(1-\pi)pu'(w_1^*)-\pi(1-p)u'(w_2^*) \label{eq:insurance_foc2} \]
+			from~\eqref{eq:insurance_foc}.
+			Differentiating with respect to~$p$ gives
+			%
+			\begin{align}
+				0
+				&= (1-\pi)u'(w_1^*)+(1-\pi)^2p\pder{c^*}{p}u''(w_1^*)\\
+					&\quad+\pi u'(w_2^*)+\pi^2(1-p)\pder{c^*}{p}u''(w_2^*)
+			\end{align}
+			%
+			so that
+			\[ \pder{c^*}{p}=-\frac{(1-\pi)u'(w_1^*)+\pi u'(w_2^*)}{(1-\pi)^2pu''(w_1^*)+\pi^2(1-p)u''(w_2^*)}, \]
+			and therefore~$c^*$ is increasing in~$p$ since~$u(w)$ is strictly increasing and concave in~$w$.
+
+		\end{solution}
+
+		\item
+		Show that~$c^*$ is increasing in~$y$ if and only if the Arrow-Pratt measure of absolute risk aversion
+		\[ A(w)=-\frac{u''(w)}{u'(w)} \]
+		is increasing in~$w$.
+		%
+		\begin{solution}
+			Differentiating~\eqref{eq:insurance_foc2} with respect to~$y$ gives
+			\[ 0=(1-\pi)pu''(w_1^*)\left(1+(1-\pi)\pder{c^*}{y}\right)-\pi(1-p)u''(w_2^*)\left(1-\pi\pder{c^*}{y}\right) \]
+			so that
+			\[ \pder{c^*}{y}=\frac{\pi(1-p)u''(w_2^*)-(1-\pi)pu''(w_1^*)}{(1-\pi)^2pu''(w_1^*)+\pi^2(1-p)u''(w_2^*)}\]
+			and therefore
+			\[ \sign\left(\pder{c^*}{y}\right)=\sign((1-\pi)pu''(w_1^*)-\pi(1-p)u''(w_2^*)) \]
+			from the second-order condition.
+			But we know from~\eqref{eq:insurance_foc2} that
+			\[ (1-\pi)p=\frac{\pi(1-p)u'(w_2^*)}{u'(w_1^*)} \]
+			and so
+			%
+			\begin{align}
+				\sign\left(\pder{c^*}{y}\right)
+				&= \sign\left(\frac{\pi(1-p)u'(w_2^*)}{u'(w_1^*)}u''(w_1^*)-\pi(1-p)u''(w_2^*)\right)\\
+				&= \sign\left(\frac{u''(w_1^*)}{u'(w_1^*)}-\frac{u''(w_2^*)}{u'(w_2^*)}\right)
+			\end{align}
+			%
+			since~$\pi(1-p)u'(w_2^*)>0$.
+			Hence
+			\[ \sign\left(\pder{c^*}{y}\right)=\sign(A(w_2^*)-A(w_1^*)). \]
+			But~$w_2^*\ge w_1^*$.
+			It follows that~$c^*$ is increasing in~$w$ if and only if~$A(w)$ is increasing in~$w$.
+		\end{solution}
+
+		\item
+		Let~$\pi_L$ be the premium rate at which~$c^*=L$ and~$\pi_0$ the premium rate at which~$c^*=0$.
+		Show that~$\pi_L<\pi_0$.
+		%
+		\begin{solution}
+			From~\eqref{eq:insurance_foc} we have
+			\[ 0=(1-\pi_L)pu'(w-\pi_L L)-\pi_L(1-p)u'(w-\pi_L L) \]
+			so that
+			\[ (1-\pi_L)p=\pi_L(1-p) \]
+			and therefore~$\pi_L=p$.
+			Similarly
+			\[ 0=(1-\pi_0)pu'(w-L)-\pi_0(1-p)u'(w) \]
+			so that
+			\[ \pi_0=\frac{pu'(w-L)}{pu'(w-L)+(1-p)u'(w)}. \]
+			But~$u(w)$ is concave and so~$u'(w-L)>u'(w)$ since~$L>0$.
+			Hence
+			\[ pu'(w-L)+(1-p)u'(w)<u'(w-L) \]
+			and therefore~$\pi_0>p=\pi_L$.
+		\end{solution}
+
+		\item
+		Now assume that~$u(w)=\ln(w)$.
+		Find an expression for~$c^*$ in terms of the parameters~$y$, $\pi$, $p$ and~$L$.
+		%
+		\begin{solution}
+			If~$u(w)=\ln(w)$ then~$u'(w)=1/w$.
+			Hence from~\eqref{eq:insurance_foc} we have
+			\[ \frac{\pi(1-p)}{w-\pi c^*}=\frac{(1-\pi)p}{w-\pi c^*-L+c^*} \]
+			so that
+			\[ \pi(1-p)(w-\pi c^*-L+c^*)=(1-\pi)p(w-\pi c^*) \]
+			and therefore
+			\[ c^*=\frac{(1-\pi)pw-\pi(1-p)(w-L)}{\pi(1-\pi)}. \]
+		\end{solution}
+
+	\end{enumerate}
+
+	\item
+	Suppose that a consumer has initial wealth~$w_0$ and utility function
+	\[ u(w)=1-\exp(-w). \]
+	Suppose also that the consumer suffers a loss of size~$l$ with probability~$p$ or no loss with probability~$(1-p)$, where~$p\in(0,1)$.
+	%
+	\begin{enumerate}
+
+		\item
+		Write an expression for the consumer's expected utility~$\E[u(w)]$ in terms of the parameters~$w_0$, $l$ and~$p$.
+		%
+		\begin{solution}
+			The consumer has expected utility
+			%
+			\begin{align}
+				\E[u(w)]
+				&= pu(w_0-l)+(1-p)u(w_0)\\
+				&= p(1-\exp(-w_0+l))+(1-p)(1-\exp(-w_0))\\
+				&= 1-p\exp(-w_0)\exp(l)-(1-p)\exp(-w_0).
+					\label{eq:cara_Eu}
+			\end{align}
+		\end{solution}
+
+		\item
+		Suppose that~$\phi$ that satisfies the indifference condition
+		\[ \E[u(w)]=u(w_0-\phi). \label{eq:cara_cedef} \]
+		Find an expression for~$\phi$ in terms of the parameters~$w_0$, $l$ and~$p$.
+		%
+		\begin{solution}
+			First write
+			%
+			\begin{align}
+				u(w_0-\phi)
+				&= 1-\exp(-w_0+\phi)\\
+				&= 1-\exp(-w_0)\exp(\phi).
+			\end{align}
+			%
+			It follows from~\eqref{eq:cara_Eu} and~\eqref{eq:cara_cedef} that
+			\[ \exp(\phi)=p\exp(l)+(1-p), \]
+			and therefore
+			\[ \phi=\ln(p\exp(l)+(1-p)). \]
+		\end{solution}
+
+		\item
+		Explain why~$\phi$ from part~b) is positive and independent of~$w_0$.
+		%
+		\begin{solution}
+			The quantity~$\phi$ represents the maximum premium that the consumer would be willing to pay to remove their risk exposure.
+			Notice that the Arrow-Pratt measure of absolute risk aversion
+			%
+			\begin{align}
+				A(w_0)
+				&= -\frac{u''(w_0)}{u'(w_0)}\\
+				&= -\frac{-\exp(-w_0)}{\exp(-w_0)}\\
+				&= 1
+			\end{align}
+			%
+			is a positive constant.
+			Hence
+			(i)~the consumer is risk averse and is willing to pay a positive premium to remove the risk, and
+			(ii)~the consumer's aversion to absolute risks is independent of wealth.
+			The latter explains why~$\phi$ does not change when~$w_0$ changes: the consumer's aversion to the absolute risk does not change.
+		\end{solution}
+
+	\end{enumerate}
+
+\end{enumerate}

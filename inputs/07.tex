@@ -1,0 +1,167 @@
+% 07.tex
+% Benjamin Davies
+% 2017 04 04
+
+\begin{enumerate}
+
+	\item
+	Suppose that a consumer solves
+	\[ \max_xu(x)=\sqrt{x_1x_2}\ \text{subject to}\ x_1+2x_2\le w, \]
+	where~$w>0$ is the consumer's disposable income and~$x_i\ge0$ is quantity demanded of each good~$i\in\{1,2\}$.
+	%
+	\begin{enumerate}
+
+		\item
+		Write down the Lagrangian for the consumer's problem.
+		Ignore any nonnegativity constraints.
+		%
+		\begin{solution}
+			The Lagrangian is given by
+			\[ \Lcal(x,\delta)=\sqrt{x_1x_2}+\delta(w-x_1-2x_2), \]
+			where~$\delta$ is a Lagrange multiplier.
+		\end{solution}
+
+		\item
+		Derive the first-order and complementary slackness conditions for an optimal solution to the consumer's problem.
+		%
+		\begin{solution}
+			The first-order conditions for a maximum are
+			%
+			\begin{align}
+				0
+				&= \pder{\Lcal(x^*,\delta)}{x_1}\\
+				&= \frac{1}{2}\sqrt{\frac{x_2^*}{x_1^*}}-\delta 
+					\label{eq:sqrt_foc1}\\
+				0
+				&= \pder{\Lcal(x^*,\delta)}{x_2}\\
+				&= \frac{1}{2}\sqrt{\frac{x_1^*}{x_2^*}}-2\delta
+					\label{eq:sqrt_foc2}
+			\end{align}
+			%
+			and the complementary slackness condition is
+			\[ \delta(w-x_1^*-2x_2^*)=0. \]
+		\end{solution}
+
+		\item
+		Find the optimal solution to the consumer's problem.
+		Interpret the value of the Lagrange multiplier for the budget constraint.
+		%
+		\begin{solution}
+			Substituting~\eqref{eq:sqrt_foc1} into~\eqref{eq:sqrt_foc2} so as to eliminate~$\delta$ gives
+			\[ \sqrt{\frac{x_2^*}{x_1^*}}%
+				=\frac{1}{2}\sqrt{\frac{x_1^*}{x_2^*}}, \]
+			which implies that~$x_1^*=2x_2^*$.
+			The Lagrange multipler
+			%
+			\begin{align}
+				\delta
+				&= \frac{1}{2}\sqrt{\frac{x_2^*}{2x_2^*}}\\
+				&= \frac{1}{2\sqrt{2}}
+			\end{align}
+			%
+			is strictly positive and so the budget constaint is binding.
+			Hence
+			%
+			\begin{align}
+				w
+				&= x_1^*+2x_2^*\\
+				&= 2x_1^*
+			\end{align}
+			%
+			so that~$x^*=(w/2,w/4)$.
+			The Lagrange multiplier value implies that an increase in wealth of~\$1 would generate an additional~$1/2\sqrt{2}$ units of utility.
+		\end{solution}
+
+		\item
+		Show that the consumer's indirect utility function is linear in~$w$.
+		%
+		\begin{solution}
+			The consumer's objective function is given by
+			%
+			\begin{align}
+				v(w)
+				&= u(x^*)\\
+				&= \sqrt{\frac{w^2}{8}}\\
+				&= \frac{w}{2\sqrt{2}}
+			\end{align}
+			%
+			The second derivative
+			\[ v''(w)=0 \]
+			is nonnegative and therefore~$v(w)$ is linear.
+		\end{solution}
+
+		\item
+		Suppose that the budget constraint changes to~$x_1+3x_2\le w$.
+		Without any calculations, explain what will happen to~$x_1^*$.
+		%
+		\begin{solution}
+			For Cobb-Douglas utility functions with~$\alpha=\beta$, the consumer spends the same amount of wealth on each good.
+			But the price of good~1 hasn't changed and so the optimal demand for good~1 will remain at~$x_1^*=w/2$.
+		\end{solution}
+
+	\end{enumerate}
+
+	\item
+	Consider the constrained minimisation problem
+	\[ \min_x v_1x^2+v_2(1-x)^2+2cx(1-x)\ \text{subject to}\ r_1x+r_2(1-x)\ge R, \]
+	where~$v_1$, $v_2$, $c$, $r_1$, $r_2$ and~$R$ are positive constants, and~$v_1+v_2>2c$.
+	%
+	\begin{enumerate}
+
+		\item
+		Write down the Lagrangian for this problem.
+		%
+		\begin{solution}
+			The Lagrangian is given by
+			\[ \Lcal(x,\delta)%
+				=-v_1x^2-v_2(1-x)^2-2cx(1-x)%
+				+\delta(r_1x+r_2(1-x)-R), \]
+			where~$\delta\ge0$ is a Lagrange multiplier.
+		\end{solution}
+
+		\item
+		Show that the Lagrangian from part~a) is maximised by
+		% Show that the optimal solution
+		\[ x^*%
+			=\frac{\delta(r_1-r_2)}{2(v_1+v_2-2c)}%
+			+\frac{v_2-c}{v_1+v_2-2c}, \label{eq:two_assets_sol} \]
+		where~$\delta$ is the Lagrange multiplier for the inequality constraint.
+		%
+		\begin{solution}
+			The maximiser~$x^*$ satisfies the first-order condition
+			%
+			\begin{align}
+				0
+				&= \pder{\Lcal(x^*,\delta)}{x}\\
+				&= -2v_1x^*+2v_2(1-x^*)-2c(1-2x^*)+\delta(r_1-r_2)\\
+				&= 2v_2-2c+\delta(r_1-r_2)-2x^*(v_1+v_2-2c),
+			\end{align}
+			%
+			which can be rearranged for~\eqref{eq:two_assets_sol}.
+			Now
+			\[ \pder{^2\Lcal(x^*,\delta)}{x^2}=-2(v_1+v_2-2c) \]
+			is strictly negative and therefore~$x^*$ is indeed a maximum.
+
+		\end{solution}
+
+		\item
+		Interpret the Lagrange multiplier~$\delta$ from part~b).
+		%
+		\begin{solution}
+			We have
+			\[ \pder{\Lcal(x^*,\delta)}{R}=-\delta. \]
+			So if~$R$ increases by one unit then the maximal value of the objective function \emph{decreases} by about~$\delta$ units.
+		\end{solution}
+
+		\item
+		Show that if~$r_1=r_2$ then~$x^*>0$ if and only if~$v_2>c$.
+		%
+		\begin{solution}
+			If~$r_1=r_2$ then the maximiser
+			\[ x^*=\frac{v_2-c}{v_1+v_2-2c}. \]
+			Now~$v_1+v_2-2c>0$ and therefore~$\sign(x^*)=\sign(v_2-c)$.
+		\end{solution}
+
+	\end{enumerate}
+
+\end{enumerate}

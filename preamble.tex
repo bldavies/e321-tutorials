@@ -1,0 +1,44 @@
+% base.tex
+% Benjamin Davies
+% 2017 12 07
+
+% packages
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,autonum}
+\usepackage{graphicx,xcolor}
+\usepackage{tikz,pgfplots}
+	\pgfplotsset{compat=1.12}
+\usepackage{verbatim}
+
+% layout
+\pagestyle{plain}
+
+% headings
+\setsecnumdepth{part}
+\setsecheadstyle{\bfseries}
+
+% counters
+\newcounter{tutorial}
+\renewcommand{\theenumi}{\thetutorial.\arabic{enumi}}
+
+% solutions
+\newif\ifshowsols
+\showsolsfalse
+\let\solution\comment
+\let\endsolution\endcomment
+\newcommand{\showsols}{%
+	\showsolstrue
+	\renewenvironment{solution}{\par\color{blue}}{\par}
+}
+
+% math
+\let\oldd=\d
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\der}[2]{\frac{\d#1}{\d#2}}
+\newcommand{\p}{\partial}
+\newcommand{\pder}[2]{\frac{\p#1}{\p#2}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\sign}{sign}

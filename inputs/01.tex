@@ -1,0 +1,122 @@
+% 01.tex
+% Benjamin Davies
+% 2017 02 08
+
+\begin{enumerate}
+
+	\item
+	Find the first and second derivatives of the following functions.
+	%
+	\begin{enumerate}
+
+		\item
+		$a(x)=\ln(x^2)$.
+		%
+		\begin{solution}
+			By the chain rule, the first derivative
+			%
+			\begin{align}
+				a'(x)
+				&= \frac{2x}{x^2}\\
+				&= \frac{2}{x}
+			\end{align}
+			%
+			and the second derivative
+			\[ a''(x)=-\frac{2}{x^2}. \]
+		\end{solution}
+
+		\item
+		$b(x)=x\ln(x)$.
+		%
+		\begin{solution}
+			By the product rule, the first derivative
+			%
+			\begin{align}
+				b'(x)
+				&= \ln(x)+\frac{x}{x}\\
+				&= \ln(x)+1
+			\end{align}
+			%
+			and the second derivative
+			\[ b''(x)=\frac{1}{x}. \]
+		\end{solution}
+
+		\item
+		$c(x)=(\ln(x))^2$.
+		%
+		\begin{solution}
+			By the chain rule, the first derivative
+			\[ c'(x)=\frac{2\ln(x)}{x}. \]
+			%
+			By the quotient rule, the second derivative
+			%
+			\begin{align}
+				c''(x)
+				&= \frac{(2/x)x-2\ln(x)}{x^2}\\
+				&= \frac{2-2\ln(x)}{x^2}.
+			\end{align}
+		\end{solution}
+
+	\end{enumerate}
+
+	\item
+	Let~$f(x)$ be an arbitrary function with~$x\in\R$.
+	Find the first and second derivatives of the following functions.
+	%
+	\begin{enumerate}
+
+		\item
+		$a(x)=f(x^2)$.
+		%
+		\begin{solution}
+			By the chain rule, the first derivative
+			\[ a'(x)=2xf'(x^2). \]
+			By the product and chain rules, the second derivative
+			\[ a''(x)=2f'(x^2)+4x^2f''(x^2). \]
+		\end{solution}
+
+		\item
+		$b(x)=(f(x))^2$.
+		%
+		\begin{solution}
+			By the chain rule, the first derivative
+			\[ b'(x)=2f'(x)f(x). \]
+			By the product rule, the second derivative
+			\[ b''(x)=2f''(x)f(x)+2(f'(x))^2. \]
+		\end{solution}
+
+		\item
+		$c(x)=f(\sqrt{x})$.
+		%
+		\begin{solution}
+			By the chain rule, the first derivative
+			\[ c'(x)=\frac{f'(\sqrt{x})}{2\sqrt{x}}. \]
+			By the quotient rule, the second derivative
+			%
+			\begin{align}
+				c''(x)
+				&= \frac{(f''(\sqrt{x})/2\sqrt{x})2\sqrt{x}%
+					-f'(\sqrt{x})/\sqrt{x}}{4x}\\
+				&= \frac{f''(\sqrt{x})\sqrt{x}-f'(\sqrt{x})}{4x^{3/2}}.
+			\end{align}
+		\end{solution}
+
+		\item
+		$d(x)=\sqrt{f(x)}$.
+		%
+		\begin{solution}
+			By the chain rule, the first derivative
+			\[ d'(x)=\frac{f'(x)}{2\sqrt{f(x)}}. \]
+			By the quotient rule, the second derivative
+			%
+			\begin{align}
+				d''(x)
+				&= \frac{2f''(x)\sqrt{f(x)}-2f'(x)(f'(x)/2\sqrt{f(x)})}%
+					{4f(x)}\\
+				&= \frac{2f(x)f''(x)-(f'(x))^2}{4(f(x))^{3/2}}.
+			\end{align}
+		\end{solution}
+
+	\end{enumerate}
+
+\end{enumerate}

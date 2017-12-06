@@ -1,0 +1,176 @@
+% 05.tex
+% Benjamin Davies
+% 2017 03 25
+
+\begin{enumerate}
+
+	\item
+	Suppose that market demand for a good is given by the linear function
+	\[ x(p)=b-ap, \]
+	where~$p>0$ is the per-unit price of the good and~$a,b>0$ are constants.
+	Assume that the market is a monopoly and that the firm produces each unit at a constant cost~$c>0$.
+	%
+	\begin{enumerate}
+
+		\item
+		Write an expression for the firm's profit function~$\pi(p)$ in terms of the price~$p$, and the parameters~$a$, $b$ and~$c$.
+		%
+		\begin{solution}
+			The firm's profit function is given by
+			%
+			\begin{align}
+				\pi(p)
+				&= px(p)-cx(p)\\
+				&= p(b-ap)-c(b-ap)\\
+				&= -ap^2+(b+ac)p-bc,
+			\end{align}
+			%
+			where~$a$, $b$ and~$c$ are treated as parameters.
+		\end{solution}
+
+		\item
+		Show that the profit function~$\pi(p)$ is concave.
+		%
+		\begin{solution}
+			The second derivative
+			\[ \pi''(p)=-2a \]
+			is negative because~$a>0$.
+			It follows that~$\pi(p)$ is concave.
+		\end{solution}
+
+		\item
+		Derive the profit-maximising price~$p^*$.
+		%
+		\begin{solution}
+			The profit-maximising price~$p^*$ satisfies the first-order condition
+			%
+			\begin{align}
+				0
+				&= \pi'(p^*)\\
+				&= -2ap^*+b+ac
+			\end{align}
+			%
+			so that
+			\[ p^*=\frac{b+ac}{2a}. \]
+			The second-order condition is satisfied because~$\pi(p)$ is concave.
+		\end{solution}
+
+		\item
+		Find the firm's maximal level of profit~$\pi(p^*)$.
+		%
+		\begin{solution}
+			The firm's maximal level of profit
+			%
+			\begin{align}
+				\pi(p^*)
+				&= -a(p^*)^2+(b+ac)p^*-bc\\
+				&= -a\bigg(\frac{b+ac}{2a}\bigg)^2%
+					+(b+ac)\bigg(\frac{b+ac}{2a}\bigg)%
+					-bc\\
+				&= \frac{-(b+ac)^2+2(b+ac)^2-4abc}{4a}\\
+				&= \frac{(b-ac)^2}{4a}.
+			\end{align}
+		\end{solution}
+
+	\end{enumerate}
+
+	\item
+	Suppose that a tax is imposed on a perfectly competitive market.
+	The demand curve is defined by
+	\[ p=a-bx, \]
+	where~$p>0$ is the market price, $x$~is the quantity demanded and~$a,b>0$ are constants.
+	The supply curve is defined by
+	\[ p=c+dx+t, \]
+	where~$t\ge0$ is the amount of the tax and~$c,d>0$ are constants.
+	%
+	\begin{enumerate}
+
+		\item
+		Find the equilibrium quantity~$x^*$ and price~$p^*$.
+		%
+		\begin{solution}
+			The equilibrium price quantity~$x^*$ satisfies
+			\[ a-bx^*=c+dx^*+t, \]
+			which has unique solution
+			\[ x^*=\frac{a-c-t}{b+d}. \]
+			Hence the equilibrium price
+			%
+			\begin{align}
+				p^*
+				&= a-bx^*\\
+				&= a-b\left(\frac{a-c-t}{b+d}\right)\\
+				&= \frac{ad+b(c+t)}{b+d}. 
+			\end{align}
+		\end{solution}
+
+		\item
+		Write an expression for the amount of tax revenue~$r(t)$ collected in terms of the choice variable~$t$, and the parameters~$a$, $b$, $c$ and $d$.
+		%
+		\begin{solution}
+			We have
+			%
+			\begin{align}
+				r(t)
+				&= tx^*\\
+				&= \frac{(a-c)t-t^2}{b+d}.
+			\end{align}
+		\end{solution}
+
+		\item
+		Solve the constrained maximisation problem
+		\[ \max_tr(t)\ \text{subject to}\ t\ge0 \label{eq:tax_c_prob} \]
+		for the revenue-maximising amount of tax~$t^*$.
+		%
+		\begin{solution}
+			Assume that~$t^*>0$.
+			The second derivative
+			\[ r''(t)=-\frac{2}{b+d} \]
+			is strictly negative and therefore~$r(t)$ is concave.
+			Hence the revenue-maximising tax~$t^*$ satisfies the first-order condition
+			%
+			\begin{align}
+				0
+				&= r'(t^*)\\
+				&= \frac{(a-c)-2t^*}{b+d}
+			\end{align}
+			%
+			so that
+			\[ t^*=\frac{a-c}{2}. \]
+			Now~$r(0)=0$ so~$t^*$ is optimal if and only if~$a-c$.
+		\end{solution}
+
+		\item
+		The solution to~\eqref{eq:tax_c_prob} is strictly positive if and only if~$a>c$.
+		Is this condition reasonable?
+		%
+		\begin{solution}
+			Yes; the condition~$a>c$ is a necessary condition for~$x^*$ to be positive.
+		\end{solution}
+
+	\end{enumerate}
+
+	\item
+	Let~$X$ be a convex set and consider the constrained maximisation problem
+	\[ \max_xf(x)\ \text{subject to}\ x\in X, \]
+	where~$f(x)$ is increasing and strictly concave.
+	Use Jensen's inequality to show that the optimal solution to this problem is unique.
+	%
+	\begin{solution}
+		Assume that~$x^1,x^2\in X$ are distinct optimal solutions.
+		Then
+		\[ \lambda x^1+(1-\lambda)x^2\in X\]
+		for all~$\lambda\in[0,1]$ because~$X$ is a convex set.
+		But~$f(x)$ is strictly concave and therefore
+		%
+		\begin{align}
+			f(\lambda x^1+(1-\lambda)x^2)
+			&> \lambda f(x^1)+(1-\lambda)f(x^2)\\
+			&\ge \min\{f(x^1),f(x^2)\}
+		\end{align}
+		%
+		by Jensen's inequality.
+		This contradicts our assumption that~$x^1$ and~$x^2$ are optimal solutions.
+		Hence the problem must have a unique solution.
+	\end{solution}
+
+\end{enumerate}

@@ -1,0 +1,177 @@
+% 04.tex
+% Benjamin Davies
+% 2017 03 11
+
+\begin{enumerate}
+
+	\item
+	Suppose that a consumer has utility function
+	\[ u(x)=\ln(x_1x_2), \]
+	where~$x_i\ge1$ is the quantity demanded for each good~$i\in\{1,2\}$.
+	%
+	\begin{enumerate}
+
+		\item
+		Use Jensen's inequality to show that~$u(x)$ is concave.
+		%
+		\begin{solution}
+			First notice that the second derivative
+			\[ \der{^2}{t^2}\ln(t)=-\frac{1}{t^2} \]
+			is negative whenever~$t\ge1$.
+			Hence the natural logarithm is concave and therefore
+			\[ \ln(\lambda t_1+(1-\lambda)t_2)%
+				\ge\lambda\ln(t_1)+(1-\lambda)\ln(t_2) \]
+			for all~$\lambda\in[0,1]$ and~$t_1,t_2\ge1$ by Jensen's inequality.
+			Now, define the set
+			\[ X=\{x\in\R^2:x_1\ge1\ \text{and}\ x_2\ge1\} \]
+			and let~$x^1,x^2\in X$ be arbitrary.
+			Then for all~$\lambda\in[0,1]$ we have
+			%
+			\begin{align}
+				u(\lambda x^1+(1-\lambda)x^2)
+				&= \ln((\lambda x_1^1+(1-\lambda)x_1^2)%
+					(\lambda x_2^1+(1-\lambda)x_2^2))\\
+				&= \ln(\lambda x_1^1+(1-\lambda)x_1^2)\\
+					&\quad+\ln(\lambda x_2^1+(1-\lambda)x_2^2)\\
+				&\ge \lambda\ln(x_1^1)+(1-\lambda)\ln(x_1^2)\\
+					&\quad+\lambda\ln(x_2^1)+(1-\lambda)\ln(x_2^2)\\
+				&= \lambda\ln(x_1^1x_2^1)+(1-\lambda)\ln(x_2^1x_2^2)\\
+				&= \lambda u(x^1)+(1-\lambda)u(x^2).
+			\end{align}
+			%
+			It follows that~$u(x)$ is concave by Jensen's inequality.
+		\end{solution}
+
+		\item
+		Show that~$u(x)$ has convex contours.
+		%
+		\begin{solution}
+			Let~$c\ge0$ be arbitrary and consider the contour defined by~$u(x)=c$.
+			We can write
+			%
+			\begin{align}
+				\exp(c)
+				&= \exp(\ln(x_1x_2))\\
+				&= x_1x_2
+			\end{align}
+			%
+			because the exponential and natural logarithm are inverse functions.
+			Dividing both sides by~$x_1$ gives
+			\[ x_2=f(x_1), \]
+			where the function
+			\[ f(x_1)=\frac{c}{x_1}. \]
+			Then the second derivative
+			\[ f''(x_1)=\frac{2c}{x_1^3} \]
+			is positive because~$x_1\ge1$ and~$c\ge0$.
+			It follows that~$u(x)$ has convex contours.
+		\end{solution}
+
+		\item
+		Find an expression for the consumer's marginal rate of substitution as a function of~$x_1$ and~$x_2$.
+		%
+		\begin{solution}
+			By the implicit function theorem, we have
+			%
+			\begin{align}
+				\der{x_2}{x_2}\bigg\vert_{\d u=0}
+				&= -\frac{\p u(x)/\p x_1}{\p u(x)/\p x_2}\\
+				&= -\frac{1/x_1}{1/x_2}\\
+				&= -\frac{x_2}{x_1}
+			\end{align}
+			%
+			so that the consumer's marginal rate of substitution
+			\[ \text{MRS}(x)=-\frac{x_2}{x_1}. \]
+		\end{solution}
+
+		\item
+		Show that the consumer optimally spends the same amount of wealth on each good.
+		%
+		\begin{solution}
+			The optimal demand~$x_i^*$ for each good~$i\in\{1,2\}$ satisfies the tangency condition
+			%
+			\begin{align}
+				-\frac{p_1}{p_2}
+				&= \text{MRS}(x^*)\\
+				&= -\frac{x_2^*}{x_1^*},
+			\end{align}
+			%
+			which implies that~$p_1x_1^*=p_2x_2^*$.
+			Hence the consumer optimally spends the same amount of wealth on each good.
+		\end{solution}
+
+	\end{enumerate}
+
+	\item
+	Suppose that a consumer has utility function
+	\[ u(x)=x_1^\alpha x_2^\beta, \]
+	where~$x_i>0$ is the quantity demanded for each good~$i\in\{1,2\}$, and~$\alpha$ and~$\beta$ are positive constants.
+	%
+	\begin{enumerate}
+		
+		\item
+		Find an expression for the consumer's marginal rate of substitution as a function of~$x_1$ and~$x_2$.
+		%
+		\begin{solution}
+			The partial derivatives
+			\[ \pder{u(x)}{x_1}=\alpha x_1^{\alpha-1}x_2^\beta \]
+			and
+			\[ \pder{u(x)}{x_2}=\beta x_1^\alpha x_2^{\beta-1}. \]
+			By the implicit function theorem, we have
+			%
+			\begin{align}
+				\der{x_2}{x_1}\bigg\vert_{\d u=0}
+				&= -\frac{\p u(x)/\p x_1}{\p u(x)/\p x_2}\\
+				&= -\frac{\alpha x_1^{\alpha-1}x_2^\beta}%
+					{\beta x_1^\alpha x_2^{\beta-1}}\\
+				&= -\frac{\alpha x_2}{\beta x_1}
+			\end{align}
+			%
+			so that the consumer's marginal rate of substitution
+			\[ \text{MRS}(x)=-\frac{\alpha x_2}{\beta x_1}. \]
+		\end{solution}
+		
+		\item
+		Show that the optimal expenditure ratio
+		\[ \frac{p_1x_1^*}{p_2x_2^*}=\frac{\alpha}{\beta}. \label{eq:cobb_b_goal} \]
+		%
+		\begin{solution}
+			The optimal demand~$x_i^*$ for each good~$i\in\{1,2\}$ satisfies the tangency condition
+			%
+			\begin{align}
+				-\frac{p_1}{p_2}
+				&= \text{MRS}(x^*)\\
+				&= -\frac{\alpha x_2^*}{\beta x_1^*}
+			\end{align}
+			%
+			which can be rewritten as
+			\[ \frac{p_1x_1^*}{p_2x_2^*}=\frac{\alpha}{\beta}. \]
+		\end{solution}
+		
+		\item
+		Use~\eqref{eq:cobb_b_goal} and the budget constraint
+		\[ p_1x_1^*+p_2x_2^*=w \]
+		to show that
+		\[ \pder{x_1^*}{\alpha}=\frac{p_2x_2^*}{(\alpha+\beta)p_1}. \]
+		%
+		\begin{solution}
+			First write the tangency condition as
+			\[ \beta p_1x_1^*=\alpha p_2x_2^*. \]
+			Differentiating both sides with respect to~$\alpha$ gives
+			\[ \beta p_1\pder{x_1^*}{\alpha}%
+				=p_2x_2^*+\alpha p_2\pder{x_2^*}{\alpha}
+				\label{eq:cobb_c_der} \]
+			by the product rule.
+			We can also differentiate the budget constraint with respect to~$\alpha$ to obtain
+			\[ p_1\pder{x_1^*}{\alpha}+p_2\pder{x_2^*}{\alpha}=0 \]
+			so that
+			\[ \pder{x_2^*}{\alpha}=-\frac{p_1}{p_2}\pder{x_1^*}{\alpha}. \]
+			Substituting this latter expression into~\eqref{eq:cobb_c_der} gives
+			\[ \beta p_1\pder{x_1^*}{\alpha}%
+				=p_2x_2^*-\alpha p_1\pder{x_1^*}{\alpha}, \]
+			which we can rearrange to obtain
+			\[ \pder{x_1^*}{\alpha}=\frac{p_2x_2^*}{(\alpha+\beta)p_1}. \]
+		\end{solution}
+		
+	\end{enumerate}
+
+\end{enumerate}

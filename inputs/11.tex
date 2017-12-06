@@ -1,0 +1,152 @@
+% 11.tex
+% Benjamin Davies
+% 2017 05 27
+
+\begin{enumerate}
+
+	\item
+	An investor with initial wealth~$w_0$ is considering putting money into an investment that earns the interest rate~$r_1$ with probability~$p$ and~$r_2$ with probability~$(1-p)$, where~$r_1<0<r_2$.
+	The investor has final wealth
+	\[ \tilde{w}=w_0+\tilde{r}x, \]
+	where~$\tilde{r}$ denotes the random interest rate and~$x$ his allocation to the risky investment.
+	The investor solves
+	\[ \max_xf(x)=\E[u(\tilde{w})], \]
+	where his utility function~$u(w)$ is strictly increasing and strictly concave in~$w$, and~$\E$ is the expectation operator.
+	%
+	\begin{enumerate}
+
+		\item
+		Write down an expression for~$\E[u(\tilde{w})]$ in terms of the choice variable~$x$, and the parameters~$w_0$, $r_1$, $r_2$ and~$p$.
+		%
+		\begin{solution}
+			The investor has expected utility
+			\[ \E[u(\tilde{w})]=pu(w_0+r_1x)+(1-p)u(w_0+r_2x). \]
+		\end{solution}
+
+		\item
+		Find the first-order conditions for the optimal choice of investment~$x^*$
+		Show that~$x^*$ satisfies the second-order condition for a maximum.
+		%
+		\begin{solution}
+			The optimal level of investment~$x^*$ satisfies the first-order condition
+			%
+			\begin{align}
+				0
+				&= f'(x)\\
+				&= r_1pu'(w_0+r_1x^*)+r_2(1-p)u'(w_0+r_2x^*). \label{eq:investment_foc}
+			\end{align}
+			%
+			The second derivative
+			\[ f''(x^*)=r_1^2pu''(w_0+r_1x^*)+r_2^2(1-p)u''(w_0+r_2x^*) \]
+			is negative because~$u(w)$ is strictly concave and so~$x^*$ satisfies the second-order condition for a maximum.
+		\end{solution}
+
+		\item
+		Show that~$x^*>0$ if and only if the expected interest rate~$\E[\tilde{r}]>0$.
+		%
+		\begin{solution}
+			First rewrite the first-order condition as
+			\[ -\frac{r_2(1-p)}{r_1p}=\frac{u'(w_0+r_1x^*)}{u'(w_0+r_2x^*)}. \]
+			Now~$r_1<0<r_2$ and so~$x^*>0$ if and only if~$w_0+r_1x^*<w_0+r_2x^*$.
+			This occurs precisely when
+			\[ 1<\frac{u'(w_0+r_1x^*)}{u'(w_0+r_2x^*)} \]
+			so that
+			\[ r_1p>-r_2(1-p) \]
+			and therefore~$0<r_1p+r_2(1-p)=\E[\tilde{r}]$.
+		\end{solution}
+
+		\item
+		Show that the optimal choice of investment~$x^*$ is increasing in~$w_0$ if and only if
+		\[ A(w_0+r_1x^*)>A(w_0+r_2x^*), \]
+		where~$A(w)\equiv-u''(w)/u'(w)$ is the Arrow-Pratt measure of absolute risk aversion.
+		%
+		\begin{solution}
+			Differentiating~\eqref{eq:investment_foc} with respect to~$w_0$ gives
+			%
+			\begin{align}
+				0
+				&= \left(1+r_1\pder{x^*}{w_0}\right)r_1pu''(w_0+r_1x^*)\\
+					&\quad+\left(1+r_2\pder{x^*}{w_0}\right)r_2(1-p)u''(w_0+r_2x^*)
+			\end{align}
+			%
+			which can be rearranged for
+			\[ \pder{x^*}{w_0}=-\frac{r_1pu''(w_0+r_1x^*)+r_2(1-p)u''(w_0+r_2x^*)}{r_1^2pu''(w_0+r_1x^*)+r_2^2(1-p)u''(w_0+r_2x^*)}. \]
+			But the denominator is strictly negative from the first-order condition and so
+			\[ \sign\left(\pder{x^*}{w_0}\right)=\sign\left(r_1pu''(w_0+r_1x^*)+r_2(1-p)u''(w_0+r_2x^*)\right). \]
+			Now
+			\[ r_2(1-p)=-\frac{r_1pu'(w_0+r_1x^*)}{u'(w_0+r_2x^*)} \]
+			from the first-order condition and so
+			%
+			\begin{align}
+				\sign\left(\pder{x^*}{w_0}\right)
+				&= \sign\left(r_1pu''(w_0+r_1x^*)-\frac{r_1pu'(w_0+r_1x^*)}{u'(w_0+r_2x^*)}u''(w_0+r_2x^*)\right)\\
+				&= \sign\left(-\frac{u''(w_0+r_1x^*)}{u'(w_0+r_1x^*)}+\frac{u''(w_0+r_2x^*)}{u'(w_0+r_2x^*)}\right)\\
+				&= \sign(A(w_0+r_1x^*)-A(w_0+r_2x^*))
+			\end{align}
+			%
+			since~$-r_1pu'(w_0+r_1x^*)>0$.
+			Thus~$x^*$ is increasing in~$w_0$ if and only if~$A(w_0+r_1x^*)>A(w_0+r_2x^*)$.
+		\end{solution}
+
+	\end{enumerate}
+
+	\item
+	Consider an investor with initial wealth~$w_0$ and utility function
+	\[ u(w)=\frac{w^{1-\gamma}-1}{1-\gamma}, \]
+	where~$\gamma>0$.%
+	\footnote{One can use L'H\^{o}pital's rule to show that~$u(w)\to\ln(w)$ as~$\gamma\to1$.}
+	Show that the investor's degree of absolute risk aversion is decreasing in his initial wealth.
+	%
+	\begin{solution}
+		We have
+		%
+		\begin{align}
+			A(w_0)
+			&= -\frac{u''(w_0)}{u'(w_0)}\\
+			&= -\frac{-\gamma w_0^{-\gamma-1}}{w_0^{-\gamma}}\\
+			&= \frac{\gamma}{w_0}.
+		\end{align}
+		%
+		Differentiating with respect to~$w_0$ gives
+		%
+		\begin{align}
+			A'(w_0)
+			&= -\frac{\gamma}{w_0^2}\\
+			&< 0
+		\end{align}
+		%
+		for all~$w_0\not=0$.
+		Thus~$u(w)$ exhibits decreasing absolute risk aversion.
+	\end{solution}
+
+	\item
+	Consider an investor with initial wealth~$w_0$ and utility function
+	\[ u(w)=aw-bw^2, \]
+	where~$a,b>0$.
+	Show that the investor's degree of absolute risk aversion is increasing in his initial wealth.
+	%
+	\begin{solution}
+		We have
+		%
+		\begin{align}
+			A(w_0)
+			&= -\frac{u''(w_0)}{u'(w_0)}\\
+			&= -\frac{-2b}{a-2bw_0}\\
+			&= \frac{1}{r-w_0},
+		\end{align}
+		%
+		where we define~$r\equiv a/2b>0$.
+		%
+		Differentiating with respect to~$w_0$ gives
+		%
+		\begin{align}
+			A'(w_0)
+			&= \frac{1}{(r-w_0)^2}\\
+			&> 0
+		\end{align}
+		%
+		for all~$w_0\not=r$.
+		Thus~$u(w)$ exhibits increasing absolute risk aversion.
+	\end{solution}
+
+\end{enumerate}

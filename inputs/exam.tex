@@ -1,0 +1,227 @@
+% exam.tex
+% Benjamin Davies
+% 2017 05 12
+
+\begin{enumerate}
+
+	\item
+	Suppose that a consumer has utility function~$u(x)=a\ln(x_1)+b\ln(x_2)$ and solves
+	\[ \max_xu(x)\ \text{subject to}\ p_1x_1+p_2x_2\le w, \label{eq:3_prob} \]
+	where~$x_i$ and~$p_i>0$ respectively denote the quantity demanded and price of good~$i\in\{1,2\}$, $w>0$ denotes his wealth, and~$a$ and~$b$ are positive constants.
+	Assume that the optimal demands~$x_1^*>0$ and~$x_2^*>0$.
+	%
+	\begin{enumerate}
+
+		\item
+		Write down the Lagrangian for the consumer's problem.
+		Derive the first-order and complementary slackness conditions for the optimal demands~$x_1^*$ and~$x_2^*$.
+		%
+		\begin{solution}
+			The Lagrangian is given by
+			\[ \Lcal(x,\delta)=a\ln(x_1)+b\ln(x_2)+\delta(w-p_1x_1-p_2x_2), \]
+			where~$\delta\ge0$ is a Lagrange multiplier.
+			The optimal demands~$x_1^*$ and~$x_2^*$ satisfy the first-order conditions
+			%
+			\begin{align}
+				0
+				&= \pder{\Lcal(x,\delta)}{x_1}\\
+				&= \frac{a}{x_1^*}-\delta p_1 \label{eq:3_foc1}
+			\end{align}
+			%
+			and
+			%
+			\begin{align}
+				0
+				&= \pder{\Lcal(x,\delta)}{x_1}\\
+				&= \frac{b}{x_2^*}-\delta p_2, \label{eq:3_foc2}
+			\end{align}
+			%
+			and the complementary slackness condition
+			\[ \delta(w-p_1x_1^*-p_2x^*)=0. \label{eq:3_cs} \]
+		\end{solution}
+
+		\item
+		Show that the optimal expenditure ratio
+		\[ \frac{p_1x_1^*}{p_2x_2^*}=\frac{a}{b}. \label{eq:3b_ans} \]
+		%
+		\begin{solution}
+			The result follows immediately from substituting~\eqref{eq:3_foc1} into~\eqref{eq:3_foc2} so as to eliminate~$\delta$.
+		\end{solution}
+
+		\item
+		Show that the consumer's budget constraint is binding.
+		%
+		\begin{solution}
+			From~\eqref{eq:3_foc1} and~\eqref{eq:3_foc2}, we have
+			%
+			\begin{align}
+				\delta w
+				&\ge \delta(p_1x_1^*+p_2x^*)\\
+				&= \delta(a+b)
+			\end{align}
+			%
+			so that
+			\[ \delta>\frac{a+b}{w} \]
+			is strictly positive.
+			It follows from~\eqref{eq:3_cs} that the budget constraint is binding.
+		\end{solution}
+
+		\item
+		Show that~$x_1^*$ is decreasing in~$p_1$.
+		%
+		\begin{solution}
+			First write~\eqref{eq:3b_ans} as
+			\[ bp_1x_1^*=ap_2x_2^*. \]
+			Differentiating both sides with respect to~$p_1$ gives
+			\[ b\left(x_1^*+p_1\pder{x_1^*}{p_1}\right)=ap_2\pder{x_2^*}{p_1}. \]
+			But from the budget constraint we have
+			\[ x_1^*+p_1\pder{x_1^*}{p_1}+p_2\pder{x_2^*}{p_1}=0 \]
+			so that
+			\[ b\left(x_1^*+p_1\pder{x_1^*}{p_1}\right)=-a\left(x_1^*+p_1\pder{x_1^*}{p_1}\right) \]
+			and therefore
+			\[ \pder{x_1^*}{p_1}=-\frac{x_1^*}{p_1}. \]
+			But~$x_1^*$ and~$p_1$ are strictly positive, and so~$x_1^*$ is decreasing in~$p_1$.
+		\end{solution}
+
+		\item
+		Use Jensen's inequality to show that~$u(x)$ is concave in~$x$.
+		%
+		\begin{solution}
+			Let~$x^1$ and~$x^2$ be feasible bundles and let~$\lambda\in[0,1]$.
+			Now~$\ln(t)$ is strictly concave in~$t$ and so
+			\[ \ln(\lambda t_1+(1-\lambda)t_2)>\lambda\ln(t_1)+(1-\lambda)\ln(t_2) \]
+			for all~$t_1>0$ and~$t_2>0$ by Jensen's inequality.
+			Hence
+			%
+			\begin{align}
+				u(\lambda x^1+(1-\lambda)x^2)
+				&= a\ln(\lambda x_1^1+(1-\lambda)x_1^2)\\
+					&\quad+b\ln(\lambda x_2^1+(1-\lambda)x_2^2)\\
+				&> a(\lambda\ln(x_1^1)+(1-\lambda)\ln(x_1^2))\\
+					&\quad+b(\lambda\ln(x_2^1)+(1-\lambda)\ln(x_2^2))\\
+				&= \lambda(a\ln(x_1^1)+b\ln(x_2^1))\\
+					&\quad+(1-\lambda)(a\ln(x_1^2)+b\ln(x_2^2))\\
+				&= \lambda u(x^1)+(1-\lambda)u(x^2)
+			\end{align}
+			%
+			so that~$u(x)$ satisfies Jensen's inequality for concave functions and is therefore concave in~$x$.
+		\end{solution}
+
+		\item
+		Suppose that a second consumer has utility function~$u(x)=x_1^ax_2^b$ and solves~\eqref{eq:3_prob} with the same parameters.
+		Explain why both consumers will have the same demands for goods~1 and~2.
+		%
+		\begin{solution}
+			Notice that
+			%
+			\begin{align}
+				\ln(x_1^ax_2^b)
+				&= \ln(x_1^a)+\ln(x_2^b)\\
+				&= a\ln(x_1)+b\ln(x_2).
+			\end{align}
+			%
+			Now~$\ln(t)$ is monotone increasing in~$t$ and so preserves the preference ordering determined by the utility function~$u(x)=x_1^ax_2^b$.
+			It follows that the two consumers will prefer the same optimal bundle to all others within the feasible set.
+		\end{solution}
+
+
+	\end{enumerate}
+
+	\item
+	Suppose that a consumer receives income~$y$ at each date~$t\in\{0,1\}$.
+	At date~1, the consumer incurs a loss of size~$L>0$ with probability~$p>0$.
+	At date~0, he buys an insurance contract that provides~$c$ units of coverage at date~1 if the loss occurs.
+	The consumer pays~$\pi$ per contracted unit of coverage and solves
+	\[ \max_c v(c)=u(y-\pi c)+\beta[pu(y-L+c)+(1-p)u(y)], \]
+	where~$u(w)$ is strictly increasing and strictly concave in~$w$, and~$\beta\in(0,1)$ is his intertemporal discount factor.
+	%
+	\begin{enumerate}
+
+		\item
+		Derive the first-order condition for the optimal level of coverage~$c^*$.
+		Show that the second-order condition holds.
+		%
+		\begin{solution}
+			The optimal level of coverage satisfies the first-order condition
+			%
+			\begin{align}
+				0
+				&= v'(c^*)\\
+				&= -\pi u(y-\pi c^*)+\beta pu'(y-L+c^*)
+			\end{align}
+			%
+			so that
+			\[ \pi u'(y-\pi c^*)=\beta pu'(y-L+c^*). \label{eq:2_foc}\]
+			The second derivative
+			\[ v''(c)=\pi^2 u''(y-\pi c)+\beta pu''(y-L+c) \]
+			is strictly negative because~$u(w)$ is strictly concave.
+			Hence~$v(c)$ is strictly concave in~$c$ and therefore~$c^*$ is indeed a maximiser.
+		\end{solution}
+
+		\item
+		Show that~$c^*$ is increasing in~$p$.
+		%
+		\begin{solution}
+			Differentiating~\eqref{eq:2_foc} with respect to~$p$ gives
+			\[ -\pi^2u''(y-\pi c^*)\pder{c^*}{p}=\beta u'(y-L+c^*)+\beta pu''(y-L+c^*)\pder{c^*}{p} \]
+			so that
+			\[ \pder{c^*}{p}=-\frac{\beta u'(y-L+c^*)}{\pi^2u''(y-\pi c^*+\beta pu''(y-L+c^*)}. \]
+			But the denominator is strictly negative from the second-order condition and therefore~$c^*$ is increasing in~$p$.
+		\end{solution}
+
+		\item
+		Show that~$c^*$ is increasing in~$y$ if and only if
+		\[ A(y-L+c)<A(y-\pi c), \label{eq:2_dcdy_cond} \]
+		where~$A(w)=-u''(w)/u'(w)$ is the Arrow-Pratt measure of absolute risk aversion.
+		%
+		\begin{solution}
+			Differentiating~\eqref{eq:2_foc} with respect to~$y$ gives
+			\[ \left(1-\pi\pder{c^*}{y}\right)\pi u''(y-\pi c^*)=\left(1+\pder{c^*}{y}\right)\beta pu''(y-L+c^*)\]
+			so that
+			\[ \pder{c^*}{y}=\frac{\pi u''(y-\pi c^*)-\beta pu''(y-L+c^*)}{\pi^2u''(y-\pi c^*)+\beta pu''(y-L+c)} \]
+			and therefore
+			\[ \sign\left(\pder{c^*}{y}\right)=\sign(\beta pu''(y-L+c^*)-\pi u''(y-\pi c^*))\]
+			from the second-order condition.
+			It follows from~\eqref{eq:2_foc} that
+			%
+			\begin{align}
+				\sign\left(\pder{c^*}{y}\right)
+				&= \sign\left(\frac{\pi u'(y-\pi c^*)}{u'(y-L+c^*)}u''(y-L+c^*)-\pi u''(y-\pi c^*)\right)\\
+				&= \sign\left(\frac{u''(y-L+c^*)}{u'(y-L+c^*)}-\frac{u''(y-\pi c^*)}{u'(y-\pi c^*)}\right)
+			\end{align}
+			%
+			since~$u(w)$ is strictly increasing.
+			Hence
+			\[ \sign\left(\pder{c^*}{y}\right)=\sign(A(y-\pi c)-A(y-L+c)) \]
+			so that~$c^*$ is increasing in~$y$ if and only if~\eqref{eq:2_dcdy_cond} holds.
+		\end{solution}
+
+		\item
+		Let~$\pi_L$ denote the per-unit price of coverage at which~$c^*=L$.
+		Show that~$\pi_L$ is increasing in~$\beta$.
+		%
+		\begin{solution}
+			Differentiating~\eqref{eq:2_foc} with respect to~$\beta$ gives
+			\[ u'(y-\pi_LL)\pder{\pi_L}{\beta}-\pi_L u''(y-\pi_LL)L\pder{\pi_L}{\beta}=pu'(y) \]
+			so that
+			\[ \pder{\pi_L}{\beta}=\frac{pu'(y)}{u'(y-\pi_LL)-\pi_LL u''(y-\pi_LL)}. \]
+			Now~$u(w)$ is strictly increasing and concave in~$w$, and therefore~$\pi_0$ is increasing in~$p$.
+		\end{solution}
+
+		\item
+		Assume that~$u(w)=\ln(w)$.
+		Find an expression for~$c^*$ in terms of the parameters~$y$, $\pi$, $\beta$, $p$ and~$L$.
+		%
+		\begin{solution}
+			If~$u(w)=\ln(w)$ then~$u'(w)=1/w$.
+			Hence from~\eqref{eq:2_foc} we have
+			\[ \frac{\pi}{y-\pi c^*}=\frac{\beta p}{y-L+c^*} \]
+			so that
+			\[ \pi(y-L+c^*)=\beta p(y-\pi c^*) \]
+			and therefore
+			\[ c^*=\frac{\pi L-(\pi-\beta p)y}{\pi (1+\beta p)}. \]
+		\end{solution}
+
+	\end{enumerate}
+
+\end{enumerate}
