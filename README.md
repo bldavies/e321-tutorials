@@ -1,9 +1,9 @@
 # e321-tutorials
 
-This repository contains the TeX files for the tutorial and exam questions that I wrote as the teaching assistant for [Microeconomic Analysis][e321] in early 2017.
+This repository contains the tutorial and exam questions that I wrote as the teaching assistant for [the undergraduate microeconomic theory course][e321] at the University of Canterbury in early 2017.
 
-The full set of questions can be viewed in `questions.pdf` while my suggested solutions are offered in `solutions.pdf`.
-The latter is obtained by compiling `questions.tex` after uncommenting the `\showsols` command on line 11.
-The TeX sources for the questions themselves, organised by tutorial number, are provided in the `inputs` folder.
+`questions.pdf` presents the full set of questions while `solutions.pdf` presents my suggested solutions (which may contain errors).
+I obtain the latter by compiling `questions.tex` after uncommenting the `\showsols` command on line 11.
+The `inputs` folder contains the TeX source for each question and solution set, organised by tutorial number.
 
 [e321]: http://www.canterbury.ac.nz/courseinfo/GetCourseDetails.aspx?course=ECON321&occurrence=17S1(C)&year=2017
